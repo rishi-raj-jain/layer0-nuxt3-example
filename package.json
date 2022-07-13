@@ -1,0 +1,22 @@
+{
+  "name": "layer0-nuxt3-example",
+  "scripts": {
+    "layer0:dev": "layer0 dev",
+    "layer0:build": "layer0 build",
+    "layer0:deploy": "layer0 deploy",
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview"
+  },
+  "devDependencies": {
+    "@layer0/cli": "^4.15.6",
+    "@layer0/core": "^4.15.6",
+    "@layer0/devtools": "^4.15.6",
+    "@layer0/prefetch": "^4.15.6",
+    "@layer0/rum": "^3.1.0",
+    "@layer0/vue": "^4.15.6",
+    "@nuxtjs/tailwindcss": "^5.2.0",
+    "nuxt": "3.0.0-rc.4"
+  }
+}
