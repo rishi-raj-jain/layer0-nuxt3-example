@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-col items-center justify-start">
+  <div v-if="data" class="flex-col items-center justify-start">
     <div class="mb-5 flex w-full flex-row items-start px-5">
       <div class="hidden w-[15%] pt-5 md:block">
         <LeftSideBar />
@@ -13,6 +13,7 @@
             :to="`/product/${item.path.replace(/\//g, '')}`"
             class="relative mt-2 w-full border border-white p-1 sm:w-1/2 md:w-1/3"
           >
+            <prefetch :url="`/l0-api/products/${item.path.replace(/\//g, '')}`"><span class="h-0 w-0"></span></prefetch>
             <div class="absolute top-0 left-0 z-10 flex flex-col items-start">
               <h3 class="bg-white py-2 px-4 text-xl font-medium text-black">{{ item.name }}</h3>
               <h4 class="text-md bg-white py-2 px-4 text-black">{{ item.prices.price.value }} {{ item.prices.price.currencyCode }}</h4>
