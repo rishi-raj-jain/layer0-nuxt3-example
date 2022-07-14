@@ -1,5 +1,5 @@
+import { publicPaths } from './publicPaths'
 import { BACKENDS, Router } from '@layer0/core'
-import { publicPaths } from '@/layer0/publicPaths'
 import { isProductionBuild } from '@layer0/core/environment'
 
 const API_CACHE_HANDLER = ({ cache, proxy }) => {
@@ -66,6 +66,46 @@ if (isProductionBuild()) {
   })
   router.get('/service-worker.js', ({ serviceWorker }) => {
     serviceWorker('.output/public/service-worker.js')
+  })
+  router.match('/', ({ cache }) => {
+    cache({
+      edge: {
+        maxAgeSeconds: 60 * 60 * 24,
+      },
+      browser: {
+        serviceWorkerSeconds: 60 * 60 * 24,
+      },
+    })
+  })
+  router.match('/about', ({ cache }) => {
+    cache({
+      edge: {
+        maxAgeSeconds: 60 * 60 * 24,
+      },
+      browser: {
+        serviceWorkerSeconds: 60 * 60 * 24,
+      },
+    })
+  })
+  router.match('/commerce', ({ cache }) => {
+    cache({
+      edge: {
+        maxAgeSeconds: 60 * 60 * 24,
+      },
+      browser: {
+        serviceWorkerSeconds: 60 * 60 * 24,
+      },
+    })
+  })
+  router.match('/product/:path', ({ cache }) => {
+    cache({
+      edge: {
+        maxAgeSeconds: 60 * 60 * 24,
+      },
+      browser: {
+        serviceWorkerSeconds: 60 * 60 * 24,
+      },
+    })
   })
   router.fallback(({ renderWithApp }) => {
     renderWithApp()
