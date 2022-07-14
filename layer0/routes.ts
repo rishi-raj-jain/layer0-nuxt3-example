@@ -1,5 +1,6 @@
 import { publicPaths } from './publicPaths'
 import { BACKENDS, Router } from '@layer0/core'
+import getPathsToPrerender from './prerenderRequests'
 import { isProductionBuild } from '@layer0/core/environment'
 
 const API_CACHE_HANDLER = ({ cache, proxy }) => {
@@ -36,7 +37,7 @@ const router = new Router()
   // the set of links are visited to warm the cache
   // for future visits (expected to be the first view for real users)
   // More on static prerendering: https://docs.layer0.co/guides/static_prerendering
-  // .prerender(getPathsToPrerender)
+  .prerender(getPathsToPrerender)
   // Serve the old Layer0 predefined routes by the latest prefix
   .match('/__xdn__/:path*', ({ redirect }) => {
     redirect('/__layer0__/:path*', 301)
