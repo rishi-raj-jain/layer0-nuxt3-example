@@ -2,6 +2,7 @@
 // You should commit this file to source control.
 // Learn more about this file at https://docs.layer0.co/guides/layer0_config
 module.exports = {
+  routes: './layer0/routes.ts',
   connector: './layer0',
   backends: {
     // Define a domain or IP address to proxy as a backend

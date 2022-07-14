@@ -1,5 +1,5 @@
-import { publicPaths } from './publicPaths'
 import { BACKENDS, Router } from '@layer0/core'
+import { publicPaths } from '@/layer0/publicPaths'
 import { isProductionBuild } from '@layer0/core/environment'
 
 const API_CACHE_HANDLER = ({ cache, proxy }) => {

@@ -21,7 +21,7 @@ const getPublicRoutes = (publicFolderPath) => {
   return matchingRoutes
 }
 
-fs.writeFile('./publicPaths.js', `export const publicPaths= ${JSON.stringify(getPublicRoutes('.output/public'))}`, function (err) {
+fs.writeFile('./layer0/publicPaths.js', `export const publicPaths= ${JSON.stringify(getPublicRoutes('.output/public'))}`, function (err) {
   if (err) {
     console.error('Crap happens')
   }

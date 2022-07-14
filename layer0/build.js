@@ -13,16 +13,16 @@ module.exports = async function build(options) {
     // Build the Nuxt 3 project as is
     let command = 'npm run build'
     await builder.exec(command)
-    // Store .output/server on the lambda
+    // Store .output/server on the lambda/serverless
     builder.addJSAsset(join(appDir, '.output', 'server'))
     // Store .output/public on S3
     builder.addStaticAsset(join(appDir, '.output', 'public'))
     // Create public file routes to be used in routes.js
-    command = 'node getPublicPaths.js'
+    command = 'node layer0/getPublicPaths.js'
     await builder.exec(command)
-    // Compile the service worker
+    // Compile and inject the service worker
     esbuild.buildSync({
-      entryPoints: [`${appDir}/sw/service-worker.js`],
+      entryPoints: [`${appDir}/layer0/sw/service-worker.js`],
       outfile: `${builder.staticAssetsDir}/.output/public/service-worker.js`,
       minify: true,
       bundle: true,

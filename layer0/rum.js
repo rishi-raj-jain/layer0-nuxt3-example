@@ -1,5 +1,5 @@
-import { Metrics } from '@layer0/rum'
-import Router from '@layer0/rum/Router'
+import Router from '@layer0/rum/Router.js'
+import Metrics from '@layer0/rum/Metrics.js'
 
 // Implementing Real Time User Monitoring (Core Web Vitals)
 // https://docs.layer0.co/guides/core_web_vitals#npm-or-yarn

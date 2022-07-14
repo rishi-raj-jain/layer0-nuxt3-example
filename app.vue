@@ -6,13 +6,14 @@
 </template>
 
 <script setup>
-// import Layer0RUM from './rum'
 import { onMounted } from 'vue'
+import Layer0RUM from './layer0/rum'
 import { install } from '@layer0/prefetch/window/index.js'
 import installDevtools from '@layer0/devtools/install.js'
 
 onMounted(() => {
-  // Layer0RUM('8016af1c-fb31-45c1-b1e0-312bffabbe93')
+  // Monitor real user as it gets mounted
+  Layer0RUM('2e2f71ee-47a2-4789-9208-825beee15863')
   // Enable service worker inside the window
   install()
   // Enable devtools manually, instead of relying on defaults by Layer0
